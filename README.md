@@ -46,6 +46,13 @@ ROS 2 기반 로봇 시스템을 실제 하드웨어에서 통합하고, 센서�
 
 현재 포트폴리오에는 ROS 2와 실기기 통합 경험이 있지만 DYNAMIXEL SDK 기반 직접 제어와 `ros2_control` hardware interface 구현 증거가 부족합니다. 두 대의 TurtleBot3를 활용한 별도 실기기 프로젝트로 이를 보완하고, 검증이 끝나면 RobotOps Dashboard를 대표 목록에서 교체할 예정입니다.
 
+## Interview Preparation
+
+- [면접 준비 시작점](interview/README.md)
+- [프로젝트별 30초·3분 답변](interview/project-answer-bank.md)
+- [ROBOTIS 직무 질문·답변 은행](interview/robotis-question-bank.md)
+- [지원서·GitHub 제출 체크리스트](applications/submission-checklist.md)
+
 ## Contact
 
 - GitHub: [@spongebobDG](https://github.com/spongebobDG)
