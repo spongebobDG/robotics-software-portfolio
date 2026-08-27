@@ -2,16 +2,22 @@
 
 지원 공고: [휴머노이드 시스템 소프트웨어 엔지니어](https://robotisrecruiter.ninehire.site/job_posting/aE8A4gYI)
 
+## 지원 포지셔닝
+
+**강점:** ROS 2 실기기 통합, Linux·UART 장애 추적, 통신 단절 안전 정지, 센서·MCU·비전 모듈 연동<br>
+**현재 공백:** DYNAMIXEL SDK 직접 제어, `ros2_control` controller·hardware interface 실기기 구현<br>
+**지원 방향:** 보유하지 않은 우대 경험을 포장하지 않고, 계층형 디버깅과 검증 습관을 휴머노이드 하드웨어 인터페이스로 확장
+
 ## 요구사항 대응표
 
 | 공고 요구사항 | 현재 증거 | 판단 |
 |---|---|---|
 | ROS 2 기반 시스템 소프트웨어 | TurtleBot Fleet Ops의 bringup, Nav2, TF2, task lifecycle, watchdog | 강점 |
-| C++ 또는 Python | C++ safety watchdog, Python ROS 2 agent·gateway·vision 모듈 | 강점 |
+| C++ 또는 Python | C++ safety watchdog 적용·실기기 검증, Python ROS 2 agent·gateway·vision 모듈 | 보유 |
 | Linux 개발·디버깅 | LDS-02 UART 무수신, 장치 소유권, RMW·Zenoh, Nav2 장애 분석 | 강점 |
 | 센서·제어기 하드웨어 연동 | LDS-02, OpenCR, Raspberry Pi, ESP32, RGB/열화상 카메라 | 강점 |
 | 실 로봇 시스템 이슈 분석 | 센서 TX 단선, 센서 축 180° 불일치, 통신 단절 안전 정지 | 강점 |
-| 모바일 로봇·매니퓰레이터 | TurtleBot3 Burger, 서브 차량, 4축 감시 로봇암 | 보유 |
+| 모바일 로봇·매니퓰레이터 | TurtleBot3 Burger, Dobot Magician Lite, Pi–ESP32 4축 로봇암, 팀 프로젝트 서브 차량 | 보유 |
 | DYNAMIXEL SDK | TurtleBot3 내부 사용 경험은 있으나 SDK 직접 구현 증거 없음 | 보완 필요 |
 | ros2_control hardware interface | 팀 시스템의 `gz_ros2_control`은 개인 기여가 아님 | 보완 필요 |
 
@@ -27,12 +33,20 @@
 3. **센서 좌표계 계약을 실측으로 검증한 과정**
    - LDS-02 원본 전방이 물리 전방과 180° 어긋나는 문제를 발견
    - Nav2와 웹 overlay에 동일한 π rad 정규화를 적용
+4. **비전 좌표가 틀렸을 때 로봇을 움직이지 않게 한 과정**
+   - held-out 좌표로 homography 보정 파일을 검증
+   - 작업영역 밖 목표를 clamp하지 않고 원본 명령을 거부
+5. **제한된 MCU에서 모델과 안전 규칙을 함께 운용한 과정**
+   - LSTM의 메모리 문제를 문제 특성에 맞는 1D-CNN 전환으로 해결
+   - AI 판단과 절대 PPM 안전망을 분리
 
 ## 과장하지 않을 범위
 
 - AIP Swarm의 `gz_ros2_control` 설정과 초기화 문제 해결은 개인 성과로 주장하지 않습니다.
 - RobotOps Dashboard의 로봇 상태는 mock이며 실기기 관제 결과로 표현하지 않습니다.
 - DYNAMIXEL SDK와 `ros2_control`은 신규 프로젝트에서 직접 구현·검증한 뒤에만 보유 역량으로 변경합니다.
+- AIP Swarm의 Docker 3대 결과를 실차 3대 동시 군집 주행으로 표현하지 않습니다.
+- Camping Safe Guard의 8.5초 조기 경보는 합성 데이터 기반 HIL 결과이며 인증 성능이 아닙니다.
 
 ## 다음 보완 프로젝트의 완료 기준
 
